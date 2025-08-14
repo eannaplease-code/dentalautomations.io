@@ -30,11 +30,7 @@ export default function CTA() {
 
   const demoMutation = useMutation({
     mutationFn: async (data: InsertDemoRequest) => {
-      return await apiRequest("/api/demo-request", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      });
+      return await apiRequest("POST", "/api/demo-request", data);
     },
     onSuccess: () => {
       toast({
