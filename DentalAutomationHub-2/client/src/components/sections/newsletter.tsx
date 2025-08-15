@@ -16,11 +16,7 @@ export default function Newsletter() {
 
   const newsletterMutation = useMutation({
     mutationFn: async (data: InsertNewsletter) => {
-      return await apiRequest("/api/newsletter", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      });
+      return await apiRequest("POST", "/api/newsletter", data);
     },
     onSuccess: () => {
       toast({
